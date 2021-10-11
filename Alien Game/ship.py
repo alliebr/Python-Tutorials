@@ -12,6 +12,8 @@ class Ship(Sprite):
         self.settings = ai_game.settings
         self.screen_rect = ai_game.screen.get_rect()
 
+        # LUCIEN, you can change the image of the ship in here. Try uploading different .bmp files and then changing to code to use them instead. 
+        # You could do other files types, like .jpg, .png, or .gif, but that requires other Python libraries that we haven't installed yet
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/ship.bmp')
         self.rect = self.image.get_rect()
