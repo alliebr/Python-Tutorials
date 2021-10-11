@@ -273,6 +273,7 @@ class AlienInvasion:
 
 # LUCIEN, run_game() is the code to start the game and run the game loop. Remember the period (.) is used in python to call a method
 # so we define use ai = AlienInvasion() to assign the code above to a variable called "ai", and then we use ai.run_game() to start it
+# We just name it ai because that is the abbreviation for Alien Invasion
 if __name__ == '__main__':
     # Make a game instance, and run the game.
     ai = AlienInvasion()
