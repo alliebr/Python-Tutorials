@@ -16,6 +16,8 @@ class Ship(Sprite):
         # You could do other files types, like .jpg, .png, or .gif, but that requires other Python libraries that we haven't installed yet
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/ship.bmp')
+        # LUCIEN, in order to use a png or jpg in the line above, you have to add the line below in order to scale it properly. I set it to (50,50), but you can change it
+        self.image = pygame.transform.scale(self.image, (50, 50)) 
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.
