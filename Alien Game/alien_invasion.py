@@ -56,6 +56,8 @@ class AlienInvasion:
         self.play_button = Button(self, "Play")
 
     # This is the function that starts the game
+    # This while loop continuously runs. The main thing it does is 'listen' for events using the _check_events() function that follows it (see the next chunk of code)
+    # Based on these events, it refreshes the game screen by updating the locations of the ship, bullets, and aliens
     def run_game(self):
         """Start the main loop for the game."""
         while True:
@@ -69,8 +71,10 @@ class AlienInvasion:
             self._update_screen()
     
     # LUCIEN
-    # The game loop will keep running, but this code allows it to 'listen' for events, like mouse clicks
+    # The game loop above will keep running, and it uses the code below to 'listen' for events, like mouse clicks
     # If it 'hears' an event, then something will happen
+    # Here is a list of different pygame events and what they mean: https://www.pygame.org/docs/ref/event.html
+    # If you do any of the following events, then it will execute the code. The code for each event is lower and they all start with '_check_'
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
