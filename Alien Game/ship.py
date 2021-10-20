@@ -17,10 +17,13 @@ class Ship(Sprite):
         # Load the ship image and get its rect.
         self.image = pygame.image.load('images/ship.bmp')
         # LUCIEN, in order to use a png or jpg in the line above, you have to add the line below in order to scale it properly. I set it to (50,50), but you can change it
-        self.image = pygame.transform.scale(self.image, (50, 50)) 
+        self.image = pygame.transform.scale(self.image, (50, 50))
+        # LUCIEN, we use get_rect() below to access the image's rectangle properties. Basically, it acts as through the image had a rectangle around it, which is fine for low detail
+        # Once you treat a screen element as a rectangle, you can position it using the top, bottom, left, or right edges of the rectangle
         self.rect = self.image.get_rect()
 
         # Start each new ship at the bottom center of the screen.
+        # LUCIEN, here you're positioning the ship rectangle (rect) to position is at the middle bottom of the screen (midbottom)
         self.rect.midbottom = self.screen_rect.midbottom
 
         # Store a decimal value for the ship's horizontal position.
@@ -33,6 +36,7 @@ class Ship(Sprite):
     def update(self):
         """Update the ship's position based on movement flags."""
         # Update the ship's x value, not the rect.
+        # LUCIEN, below we're also using rectangle attributes (rect) to increase or decrease the speed
         if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.ship_speed
         if self.moving_left and self.rect.left > 0:
