@@ -45,6 +45,9 @@ class Ship(Sprite):
         # Update rect object from self.x.
         self.rect.x = self.x
 
+    # LUCIEN, the code below uses built-in pygame code called "blit" that draws images on screens
+    # We're using the built-in blit methods to define a function called blitme() that applies to the ship
+    # It takes the image we loaded (self.image) and draws it on the rectangle defined
     def blitme(self):
         """Draw the ship at its current location."""
         self.screen.blit(self.image, self.rect)
