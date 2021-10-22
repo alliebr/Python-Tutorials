@@ -45,6 +45,7 @@ class AlienInvasion:
         self.stats = GameStats(self)
         self.sb = Scoreboard(self)
 
+        # Create an instance of the ship
         self.ship = Ship(self)
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
