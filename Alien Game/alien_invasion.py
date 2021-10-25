@@ -261,7 +261,9 @@ class AlienInvasion:
 
     def _update_screen(self):
         """Update images on the screen, and flip to the new screen."""
+        # LUCIEN, the code below fills the screen with the pre-set color of bg_color
         self.screen.fill(self.settings.bg_color)
+        # LUCIEN, the code below draws the ship using the bitme() method. It's called after the screen so that it's drawn on top
         self.ship.blitme()
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
