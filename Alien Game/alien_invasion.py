@@ -1,5 +1,5 @@
 # This is the main game code for alien_invasion.py. It will call all the other modules so that the code isn't overwhelming.
-# the sys module contains the code for exiting the game
+# the sys module contains the code for interfacing with the computer
 import sys
 from time import sleep
 
@@ -76,6 +76,11 @@ class AlienInvasion:
     # If it 'hears' an event, then something will happen
     # Here is a list of different pygame events and what they mean: https://www.pygame.org/docs/ref/event.html
     # If you do any of the following events, then it will execute the code. The code for each event is lower and they all start with '_check_'
+    # The pygrame pygame.event.get() is a PyGame method for receiving signals from the computer
+    # pygame.KEYDOWN means that a key is being pressed down; pygame.KEYUP means a key is being released, 
+    # pygame.MOUSEBUTTONDOWN means a mouse button is pressed down, pygame.get_pos() gets the position of the mouse
+    # if an event happens, then it calls another method. For example, if pygame.KEYDOWN is called, then it looks for self._check_keydown_events(), which is further down
+    # self just means that it's in this code page
     def _check_events(self):
         """Respond to keypresses and mouse events."""
         for event in pygame.event.get():
@@ -114,6 +119,10 @@ class AlienInvasion:
             # Hide the mouse cursor.
             pygame.mouse.set_visible(False)
 
+    # this is the code that's called by the function check_events() if it finds a KEYDOWN event
+    # self.ship.moving_right and moving_left are just flags that keep track of what has been clicked. They are set to TRUE if a key is down, and they are set to FALSE if a key
+    # is released by the check_keyup_events() method in the next set of code
+    # The flags are used by the update() method
     def _check_keydown_events(self, event):
         """Respond to keypresses."""
         if event.key == pygame.K_RIGHT:
@@ -125,6 +134,7 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
+    # this sets the self.ship.moving_right and moving_left flags to FALSE in order to keep track of what has been clicked
     def _check_keyup_events(self, event):
         """Respond to key releases."""
         if event.key == pygame.K_RIGHT:
