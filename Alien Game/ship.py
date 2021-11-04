@@ -33,6 +33,10 @@ class Ship(Sprite):
         self.moving_right = False
         self.moving_left = False
 
+    # The update() method is called to update the position of the ship
+    # It uses the flags that were set by pressing down the keys. These are self.moving_right and self.moving_left
+    # If one of these flags is TRUE, and the ship is not at the edge of the screen (self.rect.right < self.screen_rect.right), then
+    # the settings for the ship speed on the x axis (self.x) will be increased
     def update(self):
         """Update the ship's position based on movement flags."""
         # Update the ship's x value, not the rect.
