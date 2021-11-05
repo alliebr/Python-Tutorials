@@ -1,4 +1,5 @@
 # LUCIEN, all of this code could be in the main game, but that would make it too long and difficult to read. We can put all of the settings in this module and then call it.
+# the numbers are in pixels
 class Settings:
     """A class to store all settings for Alien Invasion."""
 
